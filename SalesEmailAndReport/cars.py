@@ -45,19 +45,20 @@ def process_data(data):
       sales_year[item["car"]["car_year"]] = item["total_sales"]
     else:
       sales_year[item["car"]["car_year"]] += item["total_sales"]
-  print(sales_year)
+  #print(sales_year)
 
   max_sales_year = max(sales_year, key=sales_year.get)
-  print(max_sales_year)
+  #print(max_sales_year)
 
   all_sales_year_values = sales_year.values()
   max_sales_year_value = max(all_sales_year_values)
-  print(max_sales_year_value)
+  #print(max_sales_year_value)
 
   summary = [
     "The {} generated the most revenue: ${}".format(
       format_car(max_revenue["car"]), max_revenue["revenue"]),
     "The {} generated the largest sale.  The total sales were: {}".format(format_car(largest_sale["car"]), largest_sale["total_sales"]),
+    "The year with the highest sales was {}.  The total sales for that year was {}".format(max_sales_year, max_sales_year_value)
   ]
 
   return summary
