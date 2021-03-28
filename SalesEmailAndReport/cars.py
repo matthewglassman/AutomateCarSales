@@ -3,6 +3,7 @@
 import json
 import locale
 import sys
+import report
 
 
 def load_data(filename):
@@ -78,6 +79,7 @@ def main(argv):
   summary = process_data(data)
   print(summary)
   # TODO: turn this into a PDF report
+
 
   # TODO: send the PDF report as an email attachment
 
