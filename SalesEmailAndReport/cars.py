@@ -81,6 +81,9 @@ def main(argv):
   print(summary)
   # TODO: turn this into a PDF report
 
+  #Convert car data from json/dictionary to two dimensional array (list of lists)
+  table = cars_dict_to_table(data)
+  print(table)
 
   # TODO: send the PDF report as an email attachment
 
