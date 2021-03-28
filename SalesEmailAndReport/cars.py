@@ -4,6 +4,7 @@ import json
 import locale
 import sys
 import report
+import emails
 
 
 def load_data(filename):
