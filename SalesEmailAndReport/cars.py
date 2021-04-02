@@ -78,12 +78,15 @@ def main(argv):
   """Process the JSON data and generate a full report out of it."""
   data = load_data("car_sales.json")
   summary = process_data(data)
-  print(summary)
+  summary_with_breaks = "<br/>".join(summary)
+  print(summary_with_breaks)
   # TODO: turn this into a PDF report
 
   #Convert car data from json/dictionary to two dimensional array (list of lists)
   table = cars_dict_to_table(data)
   print(table)
+  report.generate("/home/mglassman/report.pdf", "Car Sales History", summary_with_breaks, table)
+  
 
   # TODO: send the PDF report as an email attachment
 
