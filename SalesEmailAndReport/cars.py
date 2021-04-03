@@ -79,17 +79,23 @@ def main(argv):
   data = load_data("car_sales.json")
   summary = process_data(data)
   summary_with_breaks = "<br/>".join(summary)
-  print(summary_with_breaks)
+  summary_for_email = "<\n>".join(summary)
+ # print(summary_with_breaks)
   # TODO: turn this into a PDF report
 
   #Convert car data from json/dictionary to two dimensional array (list of lists)
   table = cars_dict_to_table(data)
-  print(table)
-  report.generate("/home/mglassman/report.pdf", "Car Sales History", summary_with_breaks, table)
+  #print(table)
+  report.generate("/home/<username>/report.pdf", "Car Sales History", summary_with_breaks, table)
   
 
   # TODO: send the PDF report as an email attachment
-
+  sender = "automation@example.com"
+  receiver = "receiver@example.com"
+  subject = "Sales summary for last month"
+  body = summary_for_email
+  message = emails.generate(sender, receiver, subject, body, "/home/<username>/report.pdf")
+  emails.send(message)
 
 if __name__ == "__main__":
   main(sys.argv)
