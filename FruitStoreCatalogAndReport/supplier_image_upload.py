@@ -2,17 +2,16 @@
 
 import requests
 import os
-import path
 
 #TODO Traverse files in path
-path = "<path_to_photo_files>"  #EX. /home/<user>/images/
+path = "<pathtoimages>"  #EX. /home/<user>/images/
 
-url = "http://localhost/upload/"
+url = "https://httpbin.org/post"
 
 folder = os.listdir(path)
 for imagefile in folder:
 	with open(path + imagefile, 'rb') as image: #Read as binary
-	
+		#print(image)
 
 #TODO Upload files to online location
-	r = requests.post(url, files={'file': image})
+		r = requests.post(url, files={'file': image})
