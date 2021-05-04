@@ -16,7 +16,7 @@ currentdate = datetime.datetime.now()
 currentmonth = currentdate.strftime("%B")
 currentday = currentdate.strftime("%d")
 currentyear = currentdate.strftime("%Y")
-
+fulldate = currentmonth + " " + currentday + ", " + currentyear
 def main(argv):
 	#Generate PDF Report
-	title = "Processed Update on " + 
+	title = "Processed Update on " + fulldate
