@@ -7,7 +7,7 @@ from reportlab.playtpus import Paragraph, Space, Table, Image
 from reportlab.lib.styles import getSampleStyleSheet
 
 #Module that describes how PDF should be rendered
-def generate(filename, title, additional_info, table_data):
+def generate_report(filename, title, additional_info, table_data):
 	styles = getSampleStylesheet()
 	report = SimpleDocTemplate(filename)
 	report_title = Paragraph(title, styles["hi"])
