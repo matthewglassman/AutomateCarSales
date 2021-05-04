@@ -10,7 +10,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 def generate(filename, title, additional_info, table_data):
 	styles = getSampleStylesheet()
 	report = SimpleDocTemplate(filename)
-	report_title = Paragrpha(title, styles["hi"])
+	report_title = Paragraph(title, styles["hi"])
 	report_info = Paragraph(additional_info, style["BodyText"])
 	table_style = [('GRID', (0,0), (-1,-1), 1, colors.black), ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'), ('ALIGN', (0,0), (-1,-1), 'CENTER')]
 	report_table = Table(data=table_data, style=table_style, hAlign="LEFT")
