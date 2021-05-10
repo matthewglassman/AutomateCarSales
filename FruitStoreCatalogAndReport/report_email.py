@@ -4,6 +4,7 @@
 import reports
 import emails
 import datetime
+import os 
 
 #Will send use reports.py and emails.py to create the actual PDF and email to send out
 
@@ -20,3 +21,16 @@ fulldate = currentmonth + " " + currentday + ", " + currentyear
 def main(argv):
 	#Generate PDF Report
 	title = "Processed Update on " + fulldate
+	attachment = '/tmp/processed.pdf'
+	#Come back to creating PDF Report
+
+	#Send email
+	sender = "automation@example.com"
+	receiver = "{}@example.com".format(os.environ.get('USER'))
+	subject = "Upload Completed - Online Fruit Store"
+	body = "All fruits are uploaded to our website successfully. A detailed list is attached to this email."
+	message = emails.generate(sender, receiver, subject, body, attachment)
+	emails.send(message)
+
+if __name__ == "__main__":
+	main(sys.argv)
