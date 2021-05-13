@@ -13,7 +13,10 @@ path = "<path to text files to iterate>"
 
 keys = ["name", "weight", "description", "image_name"]
 
+folder = os.listdir(path)
 
 #Iterate over the objects and build a dictionary
-
+for file in folder:
+	keycount = 0
+	fruit = {}
 #POST JSON Object to onlne location
