@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 #Import modules needed
-import email.message
+import email
 import mimetypes
 import os.path
 import smtplib
@@ -18,16 +18,17 @@ def generate(sender, recipient, subject, body, attachment_path):
 	message["Subject"] = subject
 	message.set_content(body)
 
-#Process attachment and add to email
-	attachment_filename = os.path.basename(attachment_path)
-	mime_type, _ = mimetypes.guess_type(attachment_path)
-	mime_type, mime_subtype = mime_type.split('/', 1)
+#Process (optional) attachment and add to email
+	if not attachment_path == "":
+		attachment_filename = os.path.basename(attachment_path)
+		mime_type, _ = mimetypes.guess_type(attachment_path)
+		mime_type, mime_subtype = mime_type.split('/', 1)
 
-	with open(attachment_path, 'rb') as ap:
-		message.add_attachment(ap.read(),
-			maintype=mime_type,
-			subtype=mime_subtype,
-			filename=attachment_filename)
+		with open(attachment_path, 'rb') as ap:
+			message.add_attachment(ap.read(),
+				maintype=mime_type,
+				subtype=mime_subtype,
+				filename=attachment_filename)
 
 	return message
 
